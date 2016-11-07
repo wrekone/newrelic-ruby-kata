@@ -1,13 +1,19 @@
-newrelic-ruby-kata
+newbrelic-ruby-kata
 ==================
 
-Using New Relic and Heroku, see how many things you can find and fix to make this app perform fast!
+Using New Relic and AWS, see how many things you can find and fix to make this app perform fast!
+
+Note: This is a minor modification of the [New Relic Ruby Kata](https://github.com/newrelic/newrelic-ruby-kata)
 
 Step 1
 -------
-Get the code. The code is waiting to be forked on [Github](https://github.com/newrelic/newrelic-ruby-kata)
+Fork the code form [this repo](https://github.com/newrelic/newrelic-ruby-kata)
 
 Step 2
+-------
+Follow instruction on how to setup and connect to your AWS instance.
+
+Step 3
 -------
 Load the sample DB locally:
 
@@ -15,30 +21,14 @@ Load the sample DB locally:
     pg_restore --verbose --clean --no-acl --no-owner -h localhost -U $USER -d newrelic-ruby-kata_development public/sample-data.dump
     bundle exec rails s
 
-Step 3
--------
-Deploy your app to Heroku, and load the database:
-
-First,
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-Then, you can load the sample data via:
-
-    heroku addons:create heroku-postgresql:hobby-dev
-    heroku addons:create memcachier
-    heroku config:set NEW_RELIC_APP_NAME=<NAME>
-    heroku pg:credentials DATABASE_URL
-    pg_restore --verbose --clean --no-acl --no-owner -h <HOSTNAME> -U <USER> -d <DATABASE> -p <PORT> --password public/sample-data.dump
-
 Step 4
 -------
-You can watch a [video on getting started](https://learn.newrelic.com/courses/intro_apm/performance_apm) with the New Relic agent to help get you started. The New Relic agent will help you find and solve the performance issues in this application as well as help you see the complete impact of your changes.
+Setup Synthetics Monitors to look at all the pages in your Ruby Kata.
 
 Step 5
 -------
-Fix the code / Solve as many of the Katas as you can. There are seven distinct Katas in this application that can be torn apart and fixed by using your awesome dev abilities and the deep metrics that New Relic provides.
+Work in teams to determine which sections of code are in need of improvement.
 
-Step 6
--------
-Let us know how you did, what you liked or disliked, what helped you find problems or what were the challenges, what you like about New Relic and what you don't - we just want to hear from you and see what we can do to get better. We'll even send you something for demonstrating your geek super powers when you complete the Kata - just provide us with your [thoughts and a link to your forked repo](https://support.newrelic.com/home).
+Use good git practices to fix the code. Setup deploy markers so that you can see clearly who made what changes when to the code. Rollback changes if needed.
+
+Solve as many of the Katas as you can. There are seven distinct Katas in this application that can be torn apart and fixed by using your awesome dev abilities and the deep metrics that New Relic provides.
